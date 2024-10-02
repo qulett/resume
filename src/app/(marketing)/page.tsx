@@ -7,6 +7,7 @@ import Contact from "@/components/Contact";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
+import TechnologyUsed from "@/components/Technology";
 import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
 import configuration from "@/configuration";
@@ -55,7 +56,9 @@ export default function Home() {
       <ScrollUp />
       <Hero />
       <Features />
+      <TechnologyUsed />
       <Video />
+
       {/* <Brands /> */}
       {/* <AboutSectionOne /> */}
       {/* <AboutSectionTwo /> */}
