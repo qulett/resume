@@ -6,7 +6,7 @@ const Features = () => {
   return (
     <>
       <section id="features" className="py-16 md:py-20 lg:py-28">
-        <div className="container">
+        <div className="animate-in fade-in slide-in-from-top-12 duration-3000  container">
           <SectionTitle
             title="Main Features"
             paragraph="Discover the key features of our services and solutions designed to

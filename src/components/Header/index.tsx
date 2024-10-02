@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
 import { LuChevronRight } from "react-icons/lu";
+import Container from "../ui/Container";
 
 const Header = () => {
   // Navbar toggle
@@ -48,16 +49,16 @@ const Header = () => {
             : "absolute bg-transparent"
         }`}
       >
-        <div className="container">
-          <div className="relative -mx-4 flex items-center justify-between">
-            <div className="w-60 max-w-full px-4 xl:mr-12">
+        <Container>
+          <div className="relative  flex items-center">
+            <div className="w-60 max-w-full ">
               <Link
                 href="/"
                 className={`header-logo block w-full ${
                   sticky ? "py-5 lg:py-2" : "py-8"
                 } `}
               >
-                <div className="text-center font-serif text-4xl font-extrabold text-primary">
+                <div className="text-center font-serif text-xl font-extrabold text-primary md:text-3xl">
                   QT
                 </div>
               </Link>
@@ -163,13 +164,13 @@ const Header = () => {
                   href="/"
                   className="ease-in-up hidden items-center rounded-full bg-primary px-4 py-3 text-base font-medium text-white shadow-btn transition duration-300 hover:bg-opacity-90 hover:shadow-btn-hover md:flex "
                 >
-                  Learn More
+                  Get a Quote
                   <LuChevronRight className=" ml-2 h-4 w-4 " />
                 </Link>
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </header>
     </>
   );
