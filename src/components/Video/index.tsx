@@ -14,7 +14,7 @@ const Video = () => {
       <div className="container">
         <SectionTitle
           title="We are ready to help"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          paragraph="Our team at Qulett Technologies is committed to providing the support and expertise you need to navigate your technology challenges. Let us help you unlock new opportunities and reach your goals."
           center
           mb="80px"
         />

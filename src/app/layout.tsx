@@ -16,6 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en">
+      <Fonts />
       {/*
         <head /> will contain the components returned by the nearest parent
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
@@ -35,3 +36,4 @@ export default function RootLayout({
 }
 
 import { Providers } from "./providers";
+import Fonts from "@/components/Fonts";
