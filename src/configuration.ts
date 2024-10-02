@@ -23,6 +23,8 @@ const configuration = {
     contact: "/contact",
     about: "/about",
     homePage: "/homepage",
+    privacyPolicy: "/privacy-policy",
+    refundPolicy: "/refund-policy",
   },
 };
 
