@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
+import { LuChevronRight } from "react-icons/lu";
 
 const Header = () => {
   // Navbar toggle
@@ -153,16 +154,18 @@ const Header = () => {
                   className="hidden px-7 py-3 text-base font-medium text-dark hover:opacity-70 dark:text-white md:block"
                 >
                   Sign In
-                </Link>
-                <Link
-                  href="/signup"
-                  className="ease-in-up hidden rounded-sm bg-primary px-8 py-3 text-base font-medium text-white shadow-btn transition duration-300 hover:bg-opacity-90 hover:shadow-btn-hover md:block md:px-9 lg:px-6 xl:px-9"
-                >
-                  Sign Up
                 </Link> */}
-                <div>
+                <div className="mr-10">
                   <ThemeToggler />
                 </div>
+
+                <Link
+                  href="/"
+                  className="ease-in-up hidden items-center rounded-full bg-primary px-4 py-3 text-base font-medium text-white shadow-btn transition duration-300 hover:bg-opacity-90 hover:shadow-btn-hover md:flex "
+                >
+                  Learn More
+                  <LuChevronRight className=" ml-2 h-4 w-4 " />
+                </Link>
               </div>
             </div>
           </div>

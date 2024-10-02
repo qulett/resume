@@ -112,14 +112,7 @@ const Footer = () => {
                       Blog
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      href="/"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
-                    >
-                      Pricing
-                    </Link>
-                  </li>
+
                   <li>
                     <Link
                       href="/about"
@@ -148,7 +141,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href={configuration.paths.privacyPolicy}
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Privacy Policy
@@ -156,7 +149,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href={configuration.paths.refundPolicy}
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Refund Policy
@@ -201,7 +194,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
+          {/* <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
           <div className="py-8">
             <p className="text-center text-base text-body-color dark:text-white">
               Template by{" "}
@@ -223,7 +216,7 @@ const Footer = () => {
                 Next.js Templates
               </a>
             </p>
-          </div>
+          </div> */}
         </div>
         <div className="absolute right-0 top-14 z-[-1]">
           <svg

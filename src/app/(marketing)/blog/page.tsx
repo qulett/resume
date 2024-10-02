@@ -1,6 +1,7 @@
 import SingleBlog from "@/components/Blog/SingleBlog";
 import blogData from "@/components/Blog/blogData";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import CommingSoon from "@/components/ui/CommingSoon";
 
 import { Metadata } from "next";
 
@@ -13,14 +14,14 @@ export const metadata: Metadata = {
 const Blog = () => {
   return (
     <>
-      <Breadcrumb
+      {/* <Breadcrumb
         pageName="Blog Grid"
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
-      />
+      /> */}
 
       <section className="pb-[120px] pt-[120px]">
         <div className="container">
-          <div className="-mx-4 flex flex-wrap justify-center">
+          {/* <div className="-mx-4 flex flex-wrap justify-center">
             {blogData.map((blog) => (
               <div
                 key={blog.id}
@@ -29,9 +30,9 @@ const Blog = () => {
                 <SingleBlog blog={blog} />
               </div>
             ))}
-          </div>
+          </div> */}
 
-          <div className="-mx-4 flex flex-wrap" data-wow-delay=".15s">
+          {/* <div className="-mx-4 flex flex-wrap" data-wow-delay=".15s">
             <div className="w-full px-4">
               <ul className="flex items-center justify-center pt-8">
                 <li className="mx-1">
@@ -89,7 +90,8 @@ const Blog = () => {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
+          <CommingSoon />
         </div>
       </section>
     </>
