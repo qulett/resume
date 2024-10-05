@@ -31,3 +31,34 @@
     @apply opacity-100;
   }
 }
+
+
+@keyframes updown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Adjust the value for how high it moves */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-updown {
+  animation: updown 2.5s ease-in-out infinite; /* Adjust duration and easing as needed */
+}
+
+
+.animate-slide {
+  animation: 15s slide linear infinite;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

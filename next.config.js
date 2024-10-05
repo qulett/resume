@@ -1,12 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["localhost"],
     remotePatterns: [
       {
         protocol: "https",
         hostname: "cdn.sanity.io",
-        port: "",
+        port: "", // Optional: You can remove this line if not needed
+        pathname: '/**', // Specify a pattern to match the image paths
+      },
+      {
+        protocol: "http",
+        hostname: "localhost", // Include localhost for local development
+        port: "", // Optional: You can remove this line if not needed
+        pathname: '/**', // Specify a pattern to match the image paths
       },
     ],
   },

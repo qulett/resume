@@ -1,62 +1,85 @@
 import Image from "next/image";
+import { teamMembers } from "@/lib/constant";
+import EmployeeCard from "./EmployeeCard";
+import Featured from "./Featured";
 
 const AboutSectionTwo = () => {
+  const features = [
+    {
+      icon: "/icon1.svg",
+      title: "Best Solutions",
+      description:
+        "Delivering exceptional results and innovative solutions maximizing your success.",
+      link: "/learn-more",
+    },
+    {
+      icon: "/icon2.svg",
+      title: "Secure Payment",
+      description:
+        "We ensure your transactions are safe with advanced encryption and secure payment options.",
+      link: "/learn-more",
+    },
+    {
+      icon: "/icon3.svg",
+      title: "Save Money",
+      description:
+        "Enjoy competitive pricing, exclusive discounts, promotions to maximize your savings.",
+      link: "/learn-more",
+    },
+    {
+      icon: "/icon4.svg",
+      title: "Quick Support",
+      description:
+        "Our dedicated support team offers prompt assistance through live chat, email, and phone.",
+      link: "/learn-more",
+    },
+  ];
+
   return (
     <section className="py-16 md:py-20 lg:py-28">
       <div className="container">
         <div className="-mx-4 flex flex-wrap items-center">
-          <div className="w-full px-4 lg:w-1/2">
-            <div
-              className="relative mx-auto mb-12 aspect-[25/24] max-w-[500px] text-center lg:m-0"
-              data-wow-delay=".15s"
-            >
-              <Image
-                src="/images/about/about-image-2.svg"
-                alt="about image"
-                fill
-                className="drop-shadow-three dark:hidden dark:drop-shadow-none"
-              />
-              <Image
-                src="/images/about/about-image-2-dark.svg"
-                alt="about image"
-                fill
-                className="hidden drop-shadow-three dark:block dark:drop-shadow-none"
-              />
+          <div className="flex w-full flex-col gap-6 ">
+            <h1 className="text-center text-6xl font-semibold">
+              Meet Our Team
+            </h1>
+            <div className="mb-10 flex flex-col items-center justify-center text-xl text-gray-600">
+              <p>
+                Meet the talented and passionate team members who drive our
+                company
+              </p>
+              <p>forward every day.</p>
             </div>
           </div>
-          <div className="w-full px-4 lg:w-1/2">
-            <div className="max-w-[470px]">
-              <div className="mb-9">
-                <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                  Bug free code
-                </h3>
-                <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
+
+          {/* Team members */}
+          <div className=" flex flex-wrap items-center justify-center gap-5">
+            {teamMembers.map((item, i) => (
+              <div key={i}>
+                <EmployeeCard
+                  name={item.name}
+                  designation={item.designation}
+                  img={item.image}
+                />
               </div>
-              <div className="mb-9">
-                <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                  Premier support
-                </h3>
-                <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt.
-                </p>
-              </div>
-              <div className="mb-1">
-                <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                  Next.js
-                </h3>
-                <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                  Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt
-                  consectetur adipiscing elit setim.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
+
+          <div className="w-full flex justify-center flex-col items-center my-16">
+            <p className=" text-[16px] md:text-2xl">Easily Monitor, Control, and Enhance Your Personal and</p>
+            <p className=" text-[14px] md:text-xl">Business Finances. Your All-In-One Solution.</p>
+          </div>
+
+
         </div>
       </div>
+
+      <div className=" p-10 sm:p-[80px]" style={{backgroundColor:'#866dee'}}>
+      <div className="container">
+            <Featured />
+            </div>
+      </div>
+            
     </section>
   );
 };

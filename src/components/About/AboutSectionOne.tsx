@@ -1,5 +1,9 @@
+"use client";
 import Image from "next/image";
 import SectionTitle from "../Common/SectionTitle";
+import { GoStarFill } from "react-icons/go";
+import { use, useEffect, useRef, useState } from "react";
+
 
 const checkIcon = (
   <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
@@ -8,6 +12,66 @@ const checkIcon = (
 );
 
 const AboutSectionOne = () => {
+  const sectionRef = useRef(null);
+  const [inView, setInView] = useState(false);
+  const [hasCounted, setHasCounted] = useState(false);
+
+  const [projects, setProjects] = useState(0);
+  const [clients, setClients] = useState(0);
+  const [users, setUsers] = useState(0);
+  const [countries, setCountries] = useState(0);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInView(true); // Set true when in view
+          } else {
+            setInView(false); // Optional: reset when out of view
+          }
+        });
+      },
+      { threshold: 0.5 }, // Trigger when 50% of the section is visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  // countUp
+  const countUp = (start, end, setter, duration = 2000) => {
+    let startTime;
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      setter(Math.floor(progress * (end - start) + start));
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    };
+    requestAnimationFrame(step);
+  };
+
+  useEffect(() => {
+    if (inView && !hasCounted) {
+      countUp(0, 23, setProjects); 
+      countUp(0, 98, setClients);
+      countUp(0, 38, setUsers); 
+      countUp(0, 150, setCountries);
+
+      setHasCounted(true);
+    }
+  }, [inView, hasCounted]);
+
   const List = ({ text }) => (
     <p className="mb-5 flex items-center text-lg font-medium text-body-color">
       <span className="mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
@@ -18,51 +82,116 @@ const AboutSectionOne = () => {
   );
 
   return (
-    <section id="about" className="pt-16 md:pt-20 lg:pt-28">
+    <section id="about" className="pt-16 md:pt-20 lg:pt-28 ">
       <div className="container">
         <div className="border-b border-body-color/[.15] pb-16 dark:border-white/[.15] md:pb-20 lg:pb-28">
           <div className="-mx-4 flex flex-wrap items-center">
-            <div className="w-full px-4 lg:w-1/2">
-              <SectionTitle
-                title="Crafted for Startup, SaaS and Business Sites."
-                paragraph="The main ‘thrust’ is to focus on educating attendees on how to best protect highly vulnerable business applications with interactive panel discussions and roundtables."
-                mb="44px"
-              />
+            <div className="grid w-full grid-cols-1 gap-6 px-4 xl:grid-cols-12">
+              <div className="relative col-span-1 xl:col-span-8 ">
+                <div className="overflow-hidden rounded-xl">
+                  <Image
+                    src={"/images/about/emp.png"}
+                    alt="about-emp"
+                    width={1200}
+                    height={800}
+                    className="scale-100 transform transition-transform duration-300 ease-in-out hover:scale-105"
+                    priority
+                  />
+                </div>
 
-              <div
-                className="mb-12 max-w-[570px] lg:mb-0"
-                data-wow-delay=".15s"
-              >
-                <div className="mx-[-12px] flex flex-wrap">
-                  <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Premium quality" />
-                    <List text="Tailwind CSS" />
-                    <List text="Use for lifetime" />
+                <div
+                  className="animate-updown absolute bottom-4 left-4 sm:bottom-7 sm:left-7 h-[200px] w-[250px] sm:h-[250px] sm:w-[300px] rounded-xl p-4 shadow-md"
+                  style={{ backgroundColor: "rgba(255, 255, 255, 0.9)" }}
+                >
+                  <div className="">
+                    <p className="text-md text-center text-gray-500">
+                      Loved by over 4k
+                    </p>
+                    <p className="text-md mb-2 text-center text-gray-500">
+                      happy clients
+                    </p>
                   </div>
+                  <div className="relative my-8 flex w-full items-center justify-center">
+                    {/* The two base images */}
+                    <div className="flex w-full max-w-3xl justify-center">
+                      <div className="relative">
+                        <Image
+                          src="/images/about/people1.jpg" // Replace with your image path
+                          alt="Image 1"
+                          width={200}
+                          height={150}
+                          className="h-[70px] w-[70px] rounded-full opacity-70 brightness-90 transition-transform duration-300 hover:scale-105"
+                        />
+                      </div>
+                      <div className="relative">
+                        <Image
+                          src="/images/about/people2.jpg" // Replace with your image path
+                          alt="Image 2"
+                          width={200}
+                          height={150}
+                          className="h-[70px] w-[70px] rounded-full opacity-70 brightness-90 transition-transform duration-300 hover:scale-105"
+                        />
+                      </div>
+                    </div>
 
-                  <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Next.js" />
-                    <List text="Rich documentation" />
-                    <List text="Developer friendly" />
+                    {/* The top image */}
+                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                      <Image
+                        src="/images/about/people3.avif" // Replace with your image path
+                        alt="Image 3"
+                        width={200}
+                        height={150}
+                        className="h-[70px] w-[70px] rounded-full border-4 border-white shadow-lg transition-transform duration-300 hover:scale-110"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center gap-1">
+                    <GoStarFill className=" text-yellow" />
+                    <GoStarFill className=" text-yellow" />
+                    <GoStarFill className=" text-yellow" />
+                    <GoStarFill className=" text-yellow" />
+                    <GoStarFill className=" text-yellow" />
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div className="w-full px-4 lg:w-1/2">
-              <div className="relative mx-auto aspect-[25/24] max-w-[500px] lg:mr-0">
-                <Image
-                  src="/images/about/about-image.svg"
-                  alt="about-image"
-                  fill
-                  className="mx-auto max-w-full drop-shadow-three dark:hidden dark:drop-shadow-none lg:mr-0"
-                />
-                <Image
-                  src="/images/about/about-image-dark.svg"
-                  alt="about-image"
-                  fill
-                  className="mx-auto hidden max-w-full drop-shadow-three dark:block dark:drop-shadow-none lg:mr-0"
-                />
+              <div className="col-span-1 flex flex-col gap-5 xl:col-span-4">
+                <div
+                  ref={sectionRef}
+                  className=" flex h-[295px] items-center justify-center gap-2 sm:gap-12  rounded-xl bg-gradient text-white"
+                >
+                  <div className="flex flex-col gap-8">
+                    <div className="flex flex-col items-center justify-center">
+                      <h3 className=" text-[48px] font-bold">+{projects}k</h3>
+                      <span>Project Completed</span>
+                    </div>
+                    <div className=" flex flex-col items-center justify-center">
+                      <h3 className=" text-[48px] font-bold">+{clients}k</h3>
+                      <span>Happy Clients</span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-8">
+                    <div className="flex flex-col items-center justify-center">
+                      <h3 className=" text-[48px] font-bold">+{users}k</h3>
+                      <span>User Activated</span>
+                    </div>
+                    <div className="flex flex-col items-center justify-center">
+                      <h3 className=" text-[48px] font-bold">{countries}</h3>
+                      <span>Operating Countries</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="overflow-hidden rounded-xl">
+                  <Image
+                    src={"/images/about/emp2.png"}
+                    alt="about-emp"
+                    width={400} // Natural width of the image
+                    height={300} // Natural height of the image
+                    className="h-auto w-full scale-100 transform transition-transform duration-300 ease-in-out hover:scale-105"
+                    priority
+                  />
+                </div>
               </div>
             </div>
           </div>
