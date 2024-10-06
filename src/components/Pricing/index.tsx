@@ -15,7 +15,7 @@ const Pricing = () => {
           paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
           center
         />
-
+        <div></div>
         <div className="w-full">
           <div className="mb-8 flex justify-center md:mb-12 lg:mb-16">
             <span
