@@ -4,7 +4,6 @@ import SectionTitle from "../Common/SectionTitle";
 import { GoStarFill } from "react-icons/go";
 import { use, useEffect, useRef, useState } from "react";
 
-
 const checkIcon = (
   <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
     <path d="M5.8535 12.6631C5.65824 12.8584 5.34166 12.8584 5.1464 12.6631L0.678505 8.1952C0.483242 7.99994 0.483242 7.68336 0.678505 7.4881L2.32921 5.83739C2.52467 5.64193 2.84166 5.64216 3.03684 5.83791L5.14622 7.95354C5.34147 8.14936 5.65859 8.14952 5.85403 7.95388L13.3797 0.420561C13.575 0.22513 13.8917 0.225051 14.087 0.420383L15.7381 2.07143C15.9333 2.26669 15.9333 2.58327 15.7381 2.77854L5.8535 12.6631Z" />
@@ -26,13 +25,13 @@ const AboutSectionOne = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setInView(true); // Set true when in view
+            setInView(true);
           } else {
-            setInView(false); // Optional: reset when out of view
+            setInView(false);
           }
         });
       },
-      { threshold: 0.5 }, // Trigger when 50% of the section is visible
+      { threshold: 0.5 },
     );
 
     if (sectionRef.current) {
@@ -63,10 +62,10 @@ const AboutSectionOne = () => {
 
   useEffect(() => {
     if (inView && !hasCounted) {
-      countUp(0, 23, setProjects); 
-      countUp(0, 98, setClients);
-      countUp(0, 38, setUsers); 
-      countUp(0, 150, setCountries);
+      countUp(0, 5, setProjects);
+      countUp(0, 20, setClients);
+      countUp(0, 10, setUsers);
+      countUp(0, 4, setCountries);
 
       setHasCounted(true);
     }
@@ -100,7 +99,7 @@ const AboutSectionOne = () => {
                 </div>
 
                 <div
-                  className="animate-updown absolute bottom-4 left-4 sm:bottom-7 sm:left-7 h-[200px] w-[250px] sm:h-[250px] sm:w-[300px] rounded-xl p-4 shadow-md"
+                  className="animate-updown absolute bottom-4 left-4 h-[200px] w-[250px] rounded-xl p-4 shadow-md sm:bottom-7 sm:left-7 sm:h-[250px] sm:w-[300px]"
                   style={{ backgroundColor: "rgba(255, 255, 255, 0.9)" }}
                 >
                   <div className="">
@@ -116,7 +115,7 @@ const AboutSectionOne = () => {
                     <div className="flex w-full max-w-3xl justify-center">
                       <div className="relative">
                         <Image
-                          src="/images/about/people1.jpg" // Replace with your image path
+                          src="/images/about/people1.jpg"
                           alt="Image 1"
                           width={200}
                           height={150}
@@ -125,7 +124,7 @@ const AboutSectionOne = () => {
                       </div>
                       <div className="relative">
                         <Image
-                          src="/images/about/people2.jpg" // Replace with your image path
+                          src="/images/about/people2.jpg"
                           alt="Image 2"
                           width={200}
                           height={150}
@@ -134,10 +133,9 @@ const AboutSectionOne = () => {
                       </div>
                     </div>
 
-                    {/* The top image */}
                     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
                       <Image
-                        src="/images/about/people3.avif" // Replace with your image path
+                        src="/images/about/people3.avif"
                         alt="Image 3"
                         width={200}
                         height={150}
@@ -158,22 +156,22 @@ const AboutSectionOne = () => {
               <div className="col-span-1 flex flex-col gap-5 xl:col-span-4">
                 <div
                   ref={sectionRef}
-                  className=" flex h-[295px] items-center justify-center gap-2 sm:gap-12  rounded-xl bg-gradient text-white"
+                  className=" flex h-[295px] items-center justify-center gap-2 rounded-xl  bg-gradient text-white sm:gap-12"
                 >
                   <div className="flex flex-col gap-8">
                     <div className="flex flex-col items-center justify-center">
-                      <h3 className=" text-[48px] font-bold">+{projects}k</h3>
+                      <h3 className=" text-[48px] font-bold">+{projects}</h3>
                       <span>Project Completed</span>
                     </div>
                     <div className=" flex flex-col items-center justify-center">
-                      <h3 className=" text-[48px] font-bold">+{clients}k</h3>
+                      <h3 className=" text-[48px] font-bold">+{clients}</h3>
                       <span>Happy Clients</span>
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-8">
                     <div className="flex flex-col items-center justify-center">
-                      <h3 className=" text-[48px] font-bold">+{users}k</h3>
+                      <h3 className=" text-[48px] font-bold">+{users}</h3>
                       <span>User Activated</span>
                     </div>
                     <div className="flex flex-col items-center justify-center">

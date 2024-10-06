@@ -43,7 +43,7 @@ const AboutSectionTwo = () => {
             <h1 className="text-center text-6xl font-semibold">
               Meet Our Team
             </h1>
-            <div className="mb-10 flex flex-col items-center justify-center text-xl text-gray-600">
+            <div className="mb-10 flex flex-col justify-center text-center text-xl text-gray-600 md:items-center">
               <p>
                 Meet the talented and passionate team members who drive our
                 company
@@ -53,7 +53,7 @@ const AboutSectionTwo = () => {
           </div>
 
           {/* Team members */}
-          <div className=" flex flex-wrap items-center justify-center gap-5">
+          <div className="flex flex-wrap items-center justify-center gap-5">
             {teamMembers.map((item, i) => (
               <div key={i}>
                 <EmployeeCard
@@ -65,21 +65,22 @@ const AboutSectionTwo = () => {
             ))}
           </div>
 
-          <div className="w-full flex justify-center flex-col items-center my-16">
-            <p className=" text-[16px] md:text-2xl">Easily Monitor, Control, and Enhance Your Personal and</p>
-            <p className=" text-[14px] md:text-xl">Business Finances. Your All-In-One Solution.</p>
+          <div className="my-16 flex w-full flex-col items-center justify-center">
+            <p className=" text-[16px] md:text-2xl">
+              Easily Monitor, Control, and Enhance Your Personal and
+            </p>
+            <p className=" text-[14px] md:text-xl">
+              Business Finances. Your All-In-One Solution.
+            </p>
           </div>
-
-
         </div>
       </div>
 
-      <div className=" p-10 sm:p-[80px]" style={{backgroundColor:'#866dee'}}>
-      <div className="container">
-            <Featured />
-            </div>
+      <div className=" p-10 sm:p-[80px]" style={{ backgroundColor: "#866dee" }}>
+        <div className="container">
+          <Featured />
+        </div>
       </div>
-            
     </section>
   );
 };
