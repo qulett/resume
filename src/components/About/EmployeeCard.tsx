@@ -13,8 +13,8 @@ const EmployeeCard: React.FC<EmployeeCardProps> = ({
   img,
 }) => {
   return (
-    <div className="m-4shadow-md relative mt-4 flex  h-[384px] w-[330px] flex-col rounded-lg bg-gray-300  transition-transform duration-300 hover:scale-105 dark:border-2 dark:border-white dark:bg-transparent dark:shadow-none">
-      <div className=" p-2">
+    <div className="shadow-md relative mt-4 flex h-[384px] w-[330px] flex-col rounded-lg bg-gray-300  transition-transform duration-300 hover:scale-105 dark:border-2 dark:border-white dark:bg-transparent dark:shadow-none">
+      <div className=" pl-4 pt-4">
         <h3 className="text-lg font-semibold">{name}</h3>
         <p className="text-sm text-gray-500">{designation}</p>
       </div>
