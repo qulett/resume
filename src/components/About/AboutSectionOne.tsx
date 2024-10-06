@@ -104,7 +104,7 @@ const AboutSectionOne = () => {
                 >
                   <div className="">
                     <p className="text-md text-center text-gray-500">
-                      Loved by over 4k
+                      Loved by over 20
                     </p>
                     <p className="text-md mb-2 text-center text-gray-500">
                       happy clients
@@ -171,7 +171,7 @@ const AboutSectionOne = () => {
 
                   <div className="flex flex-col gap-8">
                     <div className="flex flex-col items-center justify-center">
-                      <h3 className=" text-[48px] font-bold">+{users}</h3>
+                      <h3 className=" text-[48px] font-bold">+{users}K</h3>
                       <span>User Activated</span>
                     </div>
                     <div className="flex flex-col items-center justify-center">
